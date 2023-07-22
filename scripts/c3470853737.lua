@@ -42,15 +42,15 @@ end
 
 function s.search_tg( e, tp, eg, ep, ev, re, r, rp, chk )
 	if chk == 0 then
-		return Duel.IsExistingMatchingCard( s.search_filter, tp, LOCATION_DECK, 0, 1, nil )
+		return Duel.IsExistingMatchingCard( s.search_filter, tp, LOCATION_DECK + LOCATION_GRAVE, 0, 1, nil )
 	end
 
-	Duel.SetOperationInfo( 0, CATEGORY_TOHAND, nil, 1, tp, LOCATION_DECK )
+	Duel.SetOperationInfo( 0, CATEGORY_TOHAND, nil, 1, tp, LOCATION_DECK + LOCATION_GRAVE )
 end
 
 function s.search_op( e, tp, eg, ep, ev, re, r, rp )
 	Duel.Hint( HINT_SELECTMSG, tp, aux.Stringid( id, 2 ) )
-	local g = Duel.SelectMatchingCard( tp, s.search_filter, tp, LOCATION_DECK, 0, 1, 1, nil )
+	local g = Duel.SelectMatchingCard( tp, s.search_filter, tp, LOCATION_DECK + LOCATION_GRAVE, 0, 1, 1, nil )
 
 	if #g < 0 then
 		return
