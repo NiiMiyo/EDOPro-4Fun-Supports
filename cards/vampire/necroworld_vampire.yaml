@@ -1,0 +1,35 @@
+# References:
+# Vampire Familiar:   34250214
+# Vampire Retainer:   70645913
+# Metaverse:          89208725
+# Necroworld Banshee: 66570171
+
+id: 3470853737
+name: Necroworld Vampire
+card_type: monster
+sub_types:
+  - effect
+description: |-
+  If this card is Special Summoned: You can pay 500 LP; Take 1 "Zombie World" from your deck or GY, and either activate it or add it to your hand. If this card is in your GY: You can send 1 "Vampire" card from your hand or face-up field to the GY; Special Summon this card from the GY, but banish it when it leaves the field. You can only use each effect of "${card:self}" once per turn, and only once that turn.
+
+level: 2
+atk: 750
+def: 0
+attribute:
+  - dark
+category:
+  - search
+  - special_summon
+  - send_to_hand
+race:
+  - zombie
+ruleset:
+  - custom
+sets:
+  - vamp
+  - 4fun
+strings:
+  - Add/Activate "Zombie World"
+  - Special summon this card
+  - Select 1 "Zombie World"
+  - Activate "Zombie World"
