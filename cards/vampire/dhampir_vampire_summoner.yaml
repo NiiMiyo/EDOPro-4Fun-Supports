@@ -1,0 +1,27 @@
+id: 34708538
+card_type: monster
+name: Dhampir Vampire Summoner
+description: |-
+  1 “Vampire” monster
+  You can also use a faceup monster you control that your opponent owns as a material for the Link Summon of this card. When this card is Link Summoned: You can pay 500 LP; Special Summon 1 level 2 or lower "Vampire" monster from your deck or hand. You can only use this effect of "${card:self}" once per turn.
+
+atk: 1000
+level: 1
+attribute:
+  - dark
+category:
+  - special_summon
+link_arrows:
+  - down
+race:
+  - zombie
+ruleset:
+  - custom
+sets:
+  - vamp
+  - 4fun
+strings:
+  - Special Summon 1 vampire
+sub_types:
+  - link
+  - effect
