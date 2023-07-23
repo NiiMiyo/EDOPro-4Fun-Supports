@@ -10,6 +10,7 @@ function s.initial_effect( c )
 	e1:SetProperty( EFFECT_FLAG_DELAY )
 	e1:SetCode( EVENT_SPSUMMON_SUCCESS )
 	e1:SetCountLimit( 1, { id, 0 } )
+	e1:SetCondition( s.search_con )
 	e1:SetCost( s.search_cost )
 	e1:SetTarget( s.search_tg )
 	e1:SetOperation( s.search_op )
@@ -28,8 +29,15 @@ function s.initial_effect( c )
 	c:RegisterEffect( e2 )
 end
 
-function s.search_filter( c )
-	return c:IsCode( 4064256 )
+s.listed_names = { id, 4064256 }
+s.listed_series = { 0x8e }
+
+function s.search_filter( c, tp )
+	return c:IsCode( 4064256 ) and (c:GetActivateEffect():IsActivatable( tp, true, true ) or c:IsAbleToHand())
+end
+
+function s.search_con( e, tp, eg, ep, ev, re, r, rp )
+	return Duel.IsExistingMatchingCard(s.search_filter, tp, LOCATION_DECK + LOCATION_GRAVE, 0, 1, nil, tp)
 end
 
 function s.search_cost( e, tp, eg, ep, ev, re, r, rp, chk )
@@ -42,7 +50,7 @@ end
 
 function s.search_tg( e, tp, eg, ep, ev, re, r, rp, chk )
 	if chk == 0 then
-		return Duel.IsExistingMatchingCard( s.search_filter, tp, LOCATION_DECK + LOCATION_GRAVE, 0, 1, nil )
+		return Duel.IsExistingMatchingCard( s.search_filter, tp, LOCATION_DECK + LOCATION_GRAVE, 0, 1, nil, tp )
 	end
 
 	Duel.SetOperationInfo( 0, CATEGORY_TOHAND, nil, 1, tp, LOCATION_DECK + LOCATION_GRAVE )
@@ -50,7 +58,7 @@ end
 
 function s.search_op( e, tp, eg, ep, ev, re, r, rp )
 	Duel.Hint( HINT_SELECTMSG, tp, aux.Stringid( id, 2 ) )
-	local g = Duel.SelectMatchingCard( tp, s.search_filter, tp, LOCATION_DECK + LOCATION_GRAVE, 0, 1, 1, nil )
+	local g = Duel.SelectMatchingCard( tp, s.search_filter, tp, LOCATION_DECK + LOCATION_GRAVE, 0, 1, 1, nil, tp )
 
 	if #g < 0 then
 		return

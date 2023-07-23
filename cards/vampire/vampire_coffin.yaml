@@ -2,7 +2,7 @@ id: 34708539
 card_type: trap
 name: Vampire Coffin
 description: |-
-  Target 1 "Vampire" monster in your GY or banished; Shuffle it into the deck.
+  Target 1 "${meta:vamp}" monster in your GY or banished; Shuffle it into the deck.
 
 category:
   - send_to_deck
@@ -13,4 +13,4 @@ sets:
   - 4fun
 
 strings:
-  - Shuffle 1 "Vampire" monster into the deck
+  - Shuffle 1 "${meta:vamp}" monster into the deck

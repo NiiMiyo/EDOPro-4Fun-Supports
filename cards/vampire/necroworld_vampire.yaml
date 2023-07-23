@@ -10,7 +10,7 @@ card_type: monster
 sub_types:
   - effect
 description: |-
-  If this card is Special Summoned: You can pay 500 LP; Take 1 "Zombie World" from your deck or GY, and either activate it or add it to your hand. If this card is in your GY: You can send 1 "Vampire" card from your hand or face-up field to the GY; Special Summon this card from the GY, but banish it when it leaves the field. You can only use each effect of "${card:self}" once per turn.
+  If this card is Special Summoned: You can pay 500 LP; Take 1 "Zombie World" from your deck or GY, and either activate it or add it to your hand. If this card is in your GY: You can send 1 "${meta:vamp}" card from your hand or face-up field to the GY; Special Summon this card from the GY, but banish it when it leaves the field. You can only use each effect of "${card:self}" once per turn.
 
 level: 2
 atk: 750

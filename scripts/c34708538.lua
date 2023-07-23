@@ -19,6 +19,9 @@ function s.initial_effect( c )
 	c:RegisterEffect( e1 )
 end
 
+s.listed_names = { id }
+s.listed_series = { 0x8e }
+
 function s.material_filter( c, tp )
 	return c:GetOwner() ~= tp and c:IsFaceup()
 end
