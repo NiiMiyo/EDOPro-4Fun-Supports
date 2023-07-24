@@ -1,0 +1,20 @@
+id: 34708540
+name: Vampire Corruption
+card_type: spell
+description: |-
+  Target 1 faceup monster your opponent controls with an ATK equal or lower than the ATK of a "${meta:vamp}" monster you control; Take control of that monster until the end of this turn. You can only use this effect of "${card:self}" once per turn.
+  While you control a monster your opponent owns, if you would pay LP to activate the effect of a "${meta:vamp}" card, instead, you can inflict damage to your opponent equal half the amount you would pay and you gain LP equal the damage they took.
+category:
+  - control
+  - damage_lp
+  - recover_lp
+ruleset:
+  - custom
+sets:
+  - vamp
+  - 4fun
+strings:
+  - Take control of 1 monster
+  - Your opponent pays LP
+sub_types:
+  - continuous

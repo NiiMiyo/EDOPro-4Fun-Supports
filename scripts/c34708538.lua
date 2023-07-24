@@ -4,7 +4,7 @@ local s, id = GetID()
 function s.initial_effect( c )
 	-- link summoning
 	c:EnableReviveLimit()
-	Link.AddProcedure( c, aux.FilterBoolFunctionEx( s.material_filter, c:GetOwner() ), 1, 1 )
+	Link.AddProcedure( c, aux.FilterBoolFunctionEx( s.material_filter ), 1, 1 )
 
 	-- special summon
 	local e1 = Effect.CreateEffect( c )
@@ -22,8 +22,8 @@ end
 s.listed_names = { id }
 s.listed_series = { 0x8e }
 
-function s.material_filter( c, tp )
-	return c:GetOwner() ~= tp and c:IsFaceup()
+function s.material_filter( c )
+	return c:IsFaceup() and (c:GetOwner() ~= c:GetControler() or c:IsSetCard( 0x8e ))
 end
 
 function s.summon_filter( c, e )
@@ -51,5 +51,5 @@ function s.sp_op( e, tp, eg, ep, ev, re, r, rp )
 
 	Duel.Hint( HINT_SELECTMSG, tp, HINTMSG_SPSUMMON )
 	local g = Duel.SelectMatchingCard( tp, s.summon_filter, tp, LOCATION_DECK + LOCATION_HAND, 0, 1, 1, nil, e )
-	Duel.SpecialSummon(g:GetFirst(), 0, tp, tp, false, false, POS_FACEUP)
+	Duel.SpecialSummon( g:GetFirst(), 0, tp, tp, false, false, POS_FACEUP )
 end
