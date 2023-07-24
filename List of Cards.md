@@ -26,3 +26,12 @@ The Link monster Vampires needed for so long. Searches any vampire card by summo
 
 In the late game the searchers are all banned so this trap sends them back to the deck if you need them.
 <br clear="left">
+
+---
+
+### Vampire Corruption (34708540)
+
+<img src="./pics/34708540.jpg" height="600" align="left"/>
+
+Felt like Vampires could use an alternate way of sucking their opponent and steal more monsters while also losing less LP.
+<br clear="left">
