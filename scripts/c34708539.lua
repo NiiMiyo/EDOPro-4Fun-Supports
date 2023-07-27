@@ -27,17 +27,18 @@ function s.target( e, tp, eg, ep, ev, re, r, rp, chk, chkc )
 		return chkc:IsAbleToDeck()
 	end
 
-	Duel.Hint( HINT_SELECTMSG, tp, HINTMSG_TARGET )
-	local g = Duel.SelectTarget( tp, s.filter, tp, LOCATION_GRAVE + LOCATION_REMOVED, 0, 1, 1, nil )
-	Duel.SetTargetCard( g )
-	Duel.SetOperationInfo( 0, CATEGORY_TODECK, g, 1, tp, 0 )
+	Duel.SetTargetPlayer( tp )
+	Duel.SetOperationInfo( 0, CATEGORY_TODECK, nil, 1, tp, LOCATION_GRAVE + LOCATION_REMOVED )
 end
 
 function s.activate( e, tp, eg, ep, ev, re, r, rp )
-	local g = Duel.GetTargetCards( e )
+	local p = Duel.GetChainInfo(0, CHAININFO_TARGET_PLAYER)
+	local g = Duel.GetMatchingGroup( s.filter, p, LOCATION_GRAVE + LOCATION_REMOVED, 0, nil )
 	if not g or #g <= 0 then
 		return
 	end
 
-	Duel.SendtoDeck( g, nil, SEQ_DECKSHUFFLE, REASON_EFFECT )
+	Duel.Hint( HINT_SELECTMSG, p, HINTMSG_TODECK )
+	local dg = g:Select(p, 1, 1, false)
+	Duel.SendtoDeck( dg, nil, SEQ_DECKSHUFFLE, REASON_EFFECT )
 end
