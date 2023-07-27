@@ -24,7 +24,7 @@ The Link monster Vampires needed for so long. Searches any vampire card by summo
 
 <img src="./pics/34708539.jpg" height="600" align="left"/>
 
-In the late game the searchers are all banned so this trap sends them back to the deck if you need them.
+In the late game the searchers are all banned so this spell sends them back to the deck if you need them.
 <br clear="left">
 
 ---
